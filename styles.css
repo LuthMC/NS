@@ -32,6 +32,25 @@ html {
   scroll-behavior: smooth;
 }
 
+.discount-code {
+  border: 2px solid blue;
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+  animation: borderAnimation 1s infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: blue;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: blue;
+  }
+
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
