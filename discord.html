@@ -23,8 +23,8 @@
     <title>NoxStore | Digital Store</title>
     <style>
       .turnstile-container {
-        display: none;
-        margin-top: 20px;
+        position: relative;
+        display: inline-block;
         border: 2px solid blue;
         border-radius: 5px;
         padding: 10px;
@@ -73,8 +73,10 @@
     <main>
       <section class="section contact center" id="Discord">
         <h2 class="section__title">Official NoxStore Discord</h2>
-        <button class="btn btn--outline" id="click-here-btn">Click Here</button>
-        <div class="turnstile-container" id="turnstile-container">
+        <div class="turnstile-container">
+          <a href="https://dsc.gg/noxstoredc">
+            <span class="btn btn--outline">Click Here</span><br>
+          </a>
           <div
             class="cf-turnstile"
             data-sitekey="0x4AAAAAAAf1gExVf5jkvkCw"
@@ -91,7 +93,12 @@
     </main>
     <iframe src="https://discord.com/widget?id=1171878439758864504&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     <footer class="footer">
-      <a href="https://noxstore.cloud" class="link footer__link">© NoxStore 2023-2024</a>
+      <a
+        href="https://noxstore.cloud"
+        class="link footer__link"
+      >
+        © NoxStore
+      </a>
     </footer>
     <div class="scroll-container">
       <div class="scroll-top">
@@ -100,11 +107,6 @@
         </a>
       </div>
     </div>
-    <script>
-      document.getElementById("click-here-btn").addEventListener("click", function() {
-        document.getElementById("turnstile-container").style.display = "block";
-      });
-    </script>
     <script src="./script.js"></script>
   </body>
 </html>
