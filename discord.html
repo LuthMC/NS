@@ -18,17 +18,37 @@
       src="https://kit.fontawesome.com/fa62c117c7.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="stylesheet" href="styles.css" />
     <title>NoxStore | Digital Store</title>
+    <style>
+      .turnstile-container {
+        position: relative;
+        display: inline-block;
+        border: 2px solid blue;
+        border-radius: 5px;
+        padding: 10px;
+        animation: border-animation 2s infinite;
+      }
+
+      @keyframes border-animation {
+        0% {
+          box-shadow: 0 0 5px blue;
+        }
+        50% {
+          box-shadow: 0 0 20px blue;
+        }
+        100% {
+          box-shadow: 0 0 5px blue;
+        }
+      }
+    </style>
   </head>
   <body class="light" id="top">
     <header class="header center">
       <h3>
-        <a href="https://dsc.gg/noxstoredc" class="link"
-          >NS.</a
-        >
+        <a href="https://dsc.gg/noxstoredc" class="link">NS.</a>
       </h3>
-
       <nav class="nav center">
         <ul class="nav__list center">
           <li class="nav__list-item">
@@ -38,11 +58,9 @@
             <a class="link link--nav" href="#discord">Discord</a>
           </li>
         </ul>
-
         <button type="button" aria-label="toggle theme" class="btn btn--icon">
           <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
         </button>
-
         <button
           type="button"
           aria-label="toggle navigation"
@@ -52,25 +70,28 @@
         </button>
       </nav>
     </header>
-
     <main>
-      <!-- Contact -->
       <section class="section contact center" id="Discord">
         <h2 class="section__title">Official NoxStore Discord</h2>
-        <a href="https://dsc.gg/noxstoredc">
-          <span class="btn btn--outline">Click Here</span>
-        </a>
+        <div class="turnstile-container">
+          <a href="https://dsc.gg/noxstoredc">
+            <span class="btn btn--outline">Click Here</span>
+          </a>
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAAf1gExVf5jkvkCw"
+          ></div>
+        </div>
       </section>
-	<hr width="100%" size="2">
+      <hr width="100%" size="2">
       <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
-	new Crate({
-		server: '1171878439758864504', // NoxStore | Digital Store
-		channel: '1175516824847274067' // #💬∙ᴘᴜʙʟɪᴄ-ᴄʜᴀᴛ
-	})
+        new Crate({
+          server: '1171878439758864504', // NoxStore | Digital Store
+          channel: '1175516824847274067' // #💬∙ᴘᴜʙʟɪᴄ-ᴄʜᴀᴛ
+        })
       </script>
     </main>
-
-      <iframe src="https://discord.com/widget?id=1171878439758864504&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <iframe src="https://discord.com/widget?id=1171878439758864504&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     <footer class="footer">
       <a
         href="https://noxstore.cloud"
@@ -79,15 +100,13 @@
         © NoxStore
       </a>
     </footer>
-
     <div class="scroll-container">
-    <div class="scroll-top">
-      <a aria-label="Scroll up" href="#top">
-        <i aria-hidden="true" class="fas fa-arrow-up"></i>
-      </a>
+      <div class="scroll-top">
+        <a aria-label="Scroll up" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
     </div>
-    </div>
-
     <script src="./script.js"></script>
   </body>
 </html>
