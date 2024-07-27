@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Background</title>
+    <title>Donasi</title>
     <style>
         body, html {
             margin: 0;
@@ -16,6 +16,7 @@
             align-items: center;
             background: #0d0d0d;
             color: white;
+            font-family: Arial, sans-serif;
         }
 
         .background {
@@ -27,37 +28,46 @@
 
         .line {
             position: absolute;
-            width: 1px;
+            width: 2px;
             height: 100%;
-            background: linear-gradient(transparent, #ffffff, transparent);
-            animation: move linear infinite;
+            background: linear-gradient(transparent, rgba(255, 0, 0, 0.7), transparent);
+            animation: move linear infinite, colorShift 3s linear infinite;
         }
 
         @keyframes move {
             0% {
-                transform: translateY(-100%);
-                opacity: 1;
-            }
-            50% {
+                transform: translate(-50%, -50%) rotate(45deg) translateX(-100%);
                 opacity: 1;
             }
             100% {
-                transform: translateY(100%);
+                transform: translate(-50%, -50%) rotate(45deg) translateX(100%);
                 opacity: 0;
             }
         }
 
         @keyframes colorShift {
             0% {
-                filter: hue-rotate(0deg);
+                background: linear-gradient(transparent, rgba(255, 0, 0, 0.7), transparent);
+            }
+            33% {
+                background: linear-gradient(transparent, rgba(0, 255, 0, 0.7), transparent);
+            }
+            66% {
+                background: linear-gradient(transparent, rgba(0, 0, 255, 0.7), transparent);
             }
             100% {
-                filter: hue-rotate(360deg);
+                background: linear-gradient(transparent, rgba(255, 0, 0, 0.7), transparent);
             }
         }
 
         .background {
             animation: colorShift 10s linear infinite;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
         }
     </style>
 </head>
