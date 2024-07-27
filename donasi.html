@@ -19,7 +19,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="styles.css" />
-    <title>NoxStore | Digital Store</title>
+    <title>Donasi</title>
   </head>
   <body class="light" id="top">
     <header class="header center">
@@ -57,10 +57,59 @@
       <!-- Contact -->
       <section class="section contact center" id="Discord">
         <h2 class="section__title">Donasi</h2>
-          <script type='text/javascript' src='https://assets.trakteer.id/js/trbtn-overlay.min.js'></script><script type='text/javascript' class='troverlay'>(function() {var trbtnId = trbtnOverlay.init('Donasi','#be1e2d','https://trakteer.id/noxstore/tip/embed/modal','https://cdn.trakteer.id/images/embed/trbtn-icon.png?date=18-11-2023','40','inline');trbtnOverlay.draw(trbtnId);})();</script>
+          <script type='text/javascript' src='https://assets.trakteer.id/js/trbtn-overlay.min.js'></script>
+          <script type='text/javascript' class='troverlay'>
+            (function() {
+              var trbtnId = trbtnOverlay.init('Donasi','#be1e2d','https://trakteer.id/noxstore/tip/embed/modal','https://cdn.trakteer.id/images/embed/trbtn-icon.png?date=18-11-2023','40','inline');
+              trbtnOverlay.draw(trbtnId);
+
+              // Handle the donation button click event
+              document.querySelector('.troverlay').addEventListener('click', function() {
+                fetchSupportHistory();
+              });
+            })();
+
+            async function fetchSupportHistory() {
+                const apiKey = 'trapi-6pImljsvfHInkuaU9HL8VGT';
+                const url = 'https://api.trakteer.id/v1/public/supports';
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${apiKey}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+
+                    const data = await response.json();
+                    const latestSupport = data.data[0]; // Get the latest support
+                    const name = latestSupport.name;
+                    const amount = latestSupport.quantity;
+
+                    displayDonationMessage(name, amount);
+                } catch (error) {
+                    console.error('Error fetching support history:', error);
+                }
+            }
+
+            function displayDonationMessage(name, amount) {
+                const message = `${name} Telah Memberikan ${amount} Burung!`;
+                const donationMessageDiv = document.getElementById('donation-message');
+                donationMessageDiv.innerText = message;
+                donationMessageDiv.style.display = 'block';
+            }
+
+            // Fetch the support history when the page loads
+            document.addEventListener('DOMContentLoaded', fetchSupportHistory);
+          </script>
+          <div id="donation-message" style="display: none; text-align: center; margin-top: 20px;"></div>
       </section>
     </main>
-      <footer class="footer">
+    <footer class="footer">
       <a
         href="https://noxstore.cloud"
         class="link footer__link"
