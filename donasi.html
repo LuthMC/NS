@@ -11,78 +11,29 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0d0d0d;
-            color: white;
-            font-family: Arial, sans-serif;
         }
-
-        .background {
-            position: absolute;
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
         }
-
-        .line {
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(transparent, rgba(255, 0, 0, 0.7), transparent);
-            animation: move linear infinite, colorShift 3s linear infinite;
-        }
-
-        @keyframes move {
-            0% {
-                transform: translate(-50%, -50%) rotate(45deg) translateX(-100%);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(45deg) translateX(100%);
-                opacity: 0;
-            }
-        }
-
-        @keyframes colorShift {
-            0% {
-                background: linear-gradient(transparent, rgba(255, 0, 0, 0.7), transparent);
-            }
-            33% {
-                background: linear-gradient(transparent, rgba(0, 255, 0, 0.7), transparent);
-            }
-            66% {
-                background: linear-gradient(transparent, rgba(0, 0, 255, 0.7), transparent);
-            }
-            100% {
-                background: linear-gradient(transparent, rgba(255, 0, 0, 0.7), transparent);
-            }
-        }
-
-        .background {
-            animation: colorShift 10s linear infinite;
-        }
-
         .content {
             position: relative;
             z-index: 1;
+            color: white;
             text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
         }
     </style>
 </head>
 <body>
-    <div class="background">
-        <!-- Generate multiple lines -->
-        <script>
-            for (let i = 0; i < 50; i++) {
-                let line = document.createElement('div');
-                line.classList.add('line');
-                line.style.left = `${Math.random() * 100}%`;
-                line.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                document.querySelector('.background').appendChild(line);
-            }
-        </script>
+    <div class="video-background">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/lRTtMcx6rSM?autoplay=1&mute=1&loop=1&playlist=lRTtMcx6rSM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     <script type='text/javascript' src='https://assets.trakteer.id/js/trbtn-overlay.min.js'></script><script type='text/javascript' class='troverlay'>(function() {var trbtnId = trbtnOverlay.init('Donasi','#be1e2d','https://trakteer.id/noxstore/tip/embed/modal','https://cdn.trakteer.id/images/embed/trbtn-icon.png?date=18-11-2023','40','inline');trbtnOverlay.draw(trbtnId);})();</script>
 </body>
