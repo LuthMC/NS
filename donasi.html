@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            padding: 20px;
+            border: 5px solid blue;
+            animation: borderAnimation 2s infinite;
+            text-align: center;
+            color: white;
+        }
+
+        .container h1 {
+            margin: 0;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            animation: colorChange 2s infinite;
+        }
+
+        @keyframes borderAnimation {
+            0% { border-color: blue; }
+            50% { border-color: lightblue; }
+            100% { border-color: blue; }
+        }
+
+        @keyframes colorChange {
+            0% { background-color: blue; }
+            50% { background-color: lightblue; }
+            100% { background-color: blue; }
+        }
+
+        .stars {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: white;
+            animation: starFall 5s infinite;
+        }
+
+        @keyframes starFall {
+            from {
+                top: -100%;
+            }
+            to {
+                top: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" style="left: 10%;"></div>
+    <div class="stars" style="left: 20%;"></div>
+    <div class="stars" style="left: 30%;"></div>
+    <div class="stars" style="left: 40%;"></div>
+    <div class="stars" style="left: 50%;"></div>
+    <div class="stars" style="left: 60%;"></div>
+    <div class="stars" style="left: 70%;"></div>
+    <div class="stars" style="left: 80%;"></div>
+    <div class="stars" style="left: 90%;"></div>
+
+    <div class="container">
+        <h1>Donasi</h1>
+        <script type='text/javascript' src='https://assets.trakteer.id/js/trbtn-overlay.min.js'></script>
+        <script type='text/javascript' class='troverlay'>
+            (function() {
+                var trbtnId = trbtnOverlay.init('Donasi','#be1e2d','https://trakteer.id/noxstore/tip/embed/modal','https://cdn.trakteer.id/images/embed/trbtn-icon.png?date=18-11-2023','40','inline');
+                trbtnOverlay.draw(trbtnId);
+            })();
+        </script>
+    </div>
+</body>
+</html>
