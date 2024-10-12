@@ -33,40 +33,40 @@
 }
 
 .pace .pace-progress {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 
-	-webkit-background-clip: padding-box;
-	-moz-background-clip: padding;
-	background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
 
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 
-	display: block;
-	position: absolute;
-	left: 0;
-	margin-right: -7px;
-	width: 0%;
-	top: 7px;
-	height: 14px;
-	font-size: 12px;
-	background: #29d;
-	color: #29d;
-	line-height: 60px;
-	font-weight: bold;
-	font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+    display: block;
+    position: absolute;
+    left: 0; /* Ensure it starts from the left */
+    right: auto; /* Disable the right positioning */
+    width: 0%; /* Start with 0% width */
+    top: 7px;
+    height: 14px;
+    font-size: 12px;
+    background: #29d;
+    color: #29d;
+    line-height: 60px;
+    font-weight: bold;
+    font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
 
-	-webkit-box-shadow: 120px 0 #fff, 240px 0 #fff;
-	-ms-box-shadow: 120px 0 #fff, 240px 0 #fff;
-	box-shadow: 120px 0 #fff, 240px 0 #fff;
+    -webkit-box-shadow: 120px 0 #fff, 240px 0 #fff;
+    -ms-box-shadow: 120px 0 #fff, 240px 0 #fff;
+    box-shadow: 120px 0 #fff, 240px 0 #fff;
 }
 
 .pace .pace-progress:after {
