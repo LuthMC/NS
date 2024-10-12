@@ -52,9 +52,9 @@
 
 	display: block;
 	position: absolute;
-	right: 100%;
+	left: 0;
 	margin-right: -7px;
-	width: 93%;
+	width: 0%;
 	top: 7px;
 	height: 14px;
 	font-size: 12px;
