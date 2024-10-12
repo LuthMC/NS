@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-  		<title>Old Pages</title>
-  			<meta charset="UTF-8" />
-  			<meta http-equiv="refresh" content="3; URL=https://noxstore.cloud/discord" />
-  	</head>
-  	<body>
-  		<p>This page has been moved. If you are not redirected within 3 seconds, click <a href="https://noxstore.cloud/discord">here</a> to go to the discord pages.</p>
-  	</body>
-  </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoxStore Discord</title>
+    <link rel="stylesheet" href="loading-bar.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .pace {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pace">
+        <div class="pace-progress" data-progress-text="0%" id="progress-bar"></div>
+        <div class="pace-activity"></div>
+    </div>
+
+    <script>
+        let progress = 0;
+        const progressBar = document.getElementById('progress-bar');
+        const targetUrl = "https://noxstore.cloud/discord";
+
+        function updateProgressBar() {
+            if (progress <= 100) {
+                progressBar.style.width = progress + '%';
+                progressBar.setAttribute('data-progress-text', progress + '%');
+                progress += 1;
+                setTimeout(updateProgressBar, 30); // Increase the delay to slow the progress
+            } else {
+                window.location.href = targetUrl;
+            }
+        }
+
+        updateProgressBar();
+    </script>
+
+</body>
+</html>
