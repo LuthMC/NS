@@ -46,9 +46,7 @@
         overflow: hidden;
       }
 
-      .stars::before,
-      .stars::after {
-        content: '';
+      .star {
         position: absolute;
         width: 2px;
         height: 2px;
@@ -56,18 +54,6 @@
         border-radius: 50%;
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
         animation: twinkle 2s infinite ease-in-out;
-      }
-
-      .stars::before {
-        top: 10%;
-        left: 20%;
-        animation-delay: 0.5s;
-      }
-
-      .stars::after {
-        top: 30%;
-        left: 50%;
-        animation-delay: 1s;
       }
 
       @keyframes twinkle {
@@ -84,10 +70,8 @@
       /* Container for content */
       .container {
         text-align: center;
-        background: rgba(0, 0, 0, 0.7);
         padding: 2rem;
         border-radius: 10px;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         position: relative;
         z-index: 1;
       }
@@ -115,7 +99,9 @@
   </head>
   <body>
     <!-- Starry background -->
-    <div class="stars"></div>
+    <div class="stars">
+      <!-- Add multiple stars dynamically using JavaScript -->
+    </div>
 
     <!-- Main content -->
     <div class="container">
@@ -127,6 +113,19 @@
     </div>
 
     <script>
+      // Generate random stars
+      const starsContainer = document.querySelector('.stars');
+      const starCount = 100; // Number of stars
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        starsContainer.appendChild(star);
+      }
+
       // Callback function for successful verification
       function onSuccess(token) {
         const loading = document.getElementById('loading');
@@ -139,4 +138,4 @@
       }
     </script>
   </body>
-</html>
+  </html>
