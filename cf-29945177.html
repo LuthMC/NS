@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="NoxStore" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa62c117c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <title>NoxStore | Digital Store</title>
+    <style>
+      /* Space-themed background with stars */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom, #000428, #004e92);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Stars */
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .stars::before,
+      .stars::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        animation: twinkle 2s infinite ease-in-out;
+      }
+
+      .stars::before {
+        top: 10%;
+        left: 20%;
+        animation-delay: 0.5s;
+      }
+
+      .stars::after {
+        top: 30%;
+        left: 50%;
+        animation-delay: 1s;
+      }
+
+      @keyframes twinkle {
+        0%, 100% {
+          opacity: 0.5;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      /* Container for content */
+      .container {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .cf-turnstile {
+        margin: 1rem auto;
+      }
+
+      .loading {
+        display: none;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: #4caf50;
+      }
+
+      .loading.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Starry background -->
+    <div class="stars"></div>
+
+    <!-- Main content -->
+    <div class="container">
+      <h1></h1>
+      <p>Please complete the verification to proceed.</p>
+      <!-- Cloudflare Turnstile Widget -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAAf1gExVf5jkvkCw" data-callback="onSuccess"></div>
+      <div class="loading" id="loading">Verification successful! Redirecting...</div>
+    </div>
+
+    <script>
+      // Callback function for successful verification
+      function onSuccess(token) {
+        const loading = document.getElementById('loading');
+        loading.classList.add('active'); // Show loading message
+
+        // Redirect to Discord after 2 seconds
+        setTimeout(() => {
+          window.location.href = "https://discord.gg/fMJqZ9npZ3";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
